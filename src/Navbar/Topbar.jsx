@@ -108,7 +108,7 @@ const Topbar = () => {
             setSymbol(<DensityMediumIcon />)}}>  <div className=" underline font-bold my-4">Contact  </div></NavLink>
             <NavLink to="/about" onClick={()=>{setdisplay("h-[0rem]")
             setSymbol(<DensityMediumIcon />)}}>  <div className=" underline font-bold my-4">   About  </div></NavLink>
-            <NavLink to="/profile" onClick={()=>{setdisplay("h-[0rem]")
+            <NavLink to="/login" onClick={()=>{setdisplay("h-[0rem]")
             setSymbol(<DensityMediumIcon />)}}>  <div className=" underline font-bold my-4"> Login & Signup</div></NavLink>
             <br/> 
             <br/>
