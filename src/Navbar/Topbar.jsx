@@ -6,6 +6,7 @@ import { NavLink } from 'react-router-dom';
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import { Autocomplete, TextField } from '@mui/material';
 import MobileDrop from './MobileDrop';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 
@@ -13,13 +14,16 @@ const options = ["Chicken", "Sahi Korma", "Cheez Pizza", "Dal Makhni", "Samosa"]
 
 
 const Topbar = () => {
-  const [display, setdisplay] = useState("hidden my-[3rem]");
+  const [display, setdisplay] = useState("h-[0rem]");
+  const [symbol, setSymbol] = useState(<DensityMediumIcon className='animate-bounce duration-2000 ease-in-out infinite'/>)
     const handleClick = ()=>{
-        if (display == "hidden my-[3rem]"){
-            setdisplay("block my-[3rem] text-center shadow-2xl")
+        if (display == "h-[0rem]"){
+            setdisplay("h-[14rem]")
+            setSymbol(<CloseIcon />)
         }
         else{
-            setdisplay("hidden my-[3rem]")
+            setdisplay("h-[0rem]")
+            setSymbol(<DensityMediumIcon className='animate-bounce duration-2000 ease-in-out infinite'/>)
         }
     }
   return (
@@ -86,13 +90,34 @@ const Topbar = () => {
        {/* Mobile Menu Start */}
        <div className='ml-auto md:hidden block '>
         <button type='button' onClick={handleClick}>
-        <DensityMediumIcon></DensityMediumIcon>
+        {symbol}
         </button>
        </div>
        {/* Mobile Menu End */}
     </div>
-    <div className={`${display}`+ "absolute z-10"}>
-    <MobileDrop />
+    <div className={`${display}`+ " absolute z-10  text-center shadow-2xl overflow-hidden bg-white px-12 right-0 rounded-xl transition-height duration-500 "}>
+          {/* Mobile DropDown Menu */}
+          <div className="text-center">
+            <NavLink to="/" onClick={()=>{setdisplay("h-[0rem]")
+                setSymbol(<DensityMediumIcon />)}}>
+                <div className=" underline font-bold my-4">Home </div>
+            </NavLink>
+            <NavLink to="/menu" onClick={()=>{setdisplay("h-[0rem]")
+            setSymbol(<DensityMediumIcon />)}}> <div className=" underline  font-bold my-4">  Menu </div></NavLink>
+            <NavLink to="/contact" onClick={()=>{setdisplay("h-[0rem]")
+            setSymbol(<DensityMediumIcon />)}}>  <div className=" underline font-bold my-4">Contact  </div></NavLink>
+            <NavLink to="/about" onClick={()=>{setdisplay("h-[0rem]")
+            setSymbol(<DensityMediumIcon />)}}>  <div className=" underline font-bold my-4">   About  </div></NavLink>
+            <NavLink to="/profile" onClick={()=>{setdisplay("h-[0rem]")
+            setSymbol(<DensityMediumIcon />)}}>  <div className=" underline font-bold my-4"> Login & Signup</div></NavLink>
+            <br/> 
+            <br/>
+      {/* <div className="mr-8 relative">
+        <input type="text" className="border-2 border-solid border-gray-700 pl-2 w-[20rem] h-[2rem] rounded" placeholder="Search"/> 
+            </div>
+             */}
+          </div>
+          {/* Mobile DropDown Menu Close */}
     </div>
     </>
   )

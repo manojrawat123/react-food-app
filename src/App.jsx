@@ -14,9 +14,6 @@ import MyOrderDetail from './Component/OrderDetail/MyOrderDetail';
 function App() { 
 return (
     <>
-     
-      
-      
       <PrimarySearchAppBar />
       <SideBar />
       <Routes>

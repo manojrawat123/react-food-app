@@ -27,4 +27,17 @@
     font-size: 1.4rem;
     color: black;
   }
-  
+  @keyframes bounce {
+    0% {
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+    }
+    50% {
+      --tw-scale-x: 1.5;
+      --tw-scale-y: 1.5;
+    }
+    100% {
+      --tw-scale-x: 1;
+      --tw-scale-y: 1;
+    }
+  }
