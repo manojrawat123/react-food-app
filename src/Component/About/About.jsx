@@ -1,4 +1,6 @@
 import React from 'react'
+import { useContext } from 'react'
+import ApiContextData from '../../context'
 
 const MyAbout = () => {
   return (

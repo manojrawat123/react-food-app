@@ -1,21 +1,27 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import logo from '../img/logo.png';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SearchIcon from '@mui/icons-material/Search';
-import { NavLink } from 'react-router-dom';
+import { NavLink, Navigate, useNavigate, useLocation } from 'react-router-dom';
 import DensityMediumIcon from '@mui/icons-material/DensityMedium';
 import { Autocomplete, TextField } from '@mui/material';
 import MobileDrop from './MobileDrop';
 import CloseIcon from '@mui/icons-material/Close';
+import ApiContextData from '../context';
 
 
 
-const options = ["Chicken", "Sahi Korma", "Cheez Pizza", "Dal Makhni", "Samosa"]
 
 
 const Topbar = () => {
+  const {cocktails, setCocktails,itemSearch, setItemSearch } = useContext(ApiContextData);
+  const navigate = useNavigate()
+  const location = useLocation()
+  const options = cocktails.map((element)=>{return element.name})
   const [display, setdisplay] = useState("h-[0rem]");
+
   const [symbol, setSymbol] = useState(<DensityMediumIcon className='animate-bounce duration-2000 ease-in-out infinite'/>)
+  
     const handleClick = ()=>{
         if (display == "h-[0rem]"){
             setdisplay("h-[14rem]")
@@ -31,37 +37,25 @@ const Topbar = () => {
     <div className='text-white w-[100%] flex justify-center items-center col-span-12 h-[4rem] bg-gradient-to-r from-blue-700 via-pink-300 to-red-700 pr-8'>
        <div className='mr-auto ml-4'> <img src={logo} className='h-[2rem] w-[2rem] rounded-[50%]'/></div>
        <div className='relative sm:mr-0 mr-auto'>
-       <Autocomplete
-       size='small'
-      options={options}
-      renderInput={(params) => (
-        <TextField
-        sx={{
-          width: {
-            xs: '65vw',
-            sm:'40vw',
-            md: '45vw',
-        },
-}}
-          {...params}
-          label=""
-          placeholder='Search Your Meal'
-          
-          InputProps={{ ...params.InputProps,endAdornment: null ,style: {
-            fontWeight: 'bold',
-            color: 'white',
-            fontSize:"18px"
-          },}}
-        />
-      )}
-    />       
-        {/* <input 
+
+           
+        
+        <input 
         type='text'
-        className='border border-gray-500 border-solid outline-1 outline-blue-700 w-[40vw] sm:w-[40vw] h-[2rem] rounded-xl pl-4' /> */}
+        placeholder='Search your drink here'
+        value={itemSearch}
+        onChange={(e)=>{
+          if(location.pathname !== "/menu"){
+            navigate("/menu")
+          }
+          setItemSearch(e.target.value)
+
+        }}
+        className='border border-gray-500 border-solid outline-1 text-black outline-blue-700 w-[40vw] sm:w-[40vw] h-[3rem] rounded-xl pl-4' />
         <button 
         type="button"
         onClick={()=>{console.log("button clicked")}}
-        className='absolute top-1 right-3 border-l border-solid border-gray-500'>{/*<NavLink to={'/search'}>*/} <SearchIcon></SearchIcon>{/*</NavLink>*/}</button>
+        className='absolute right-2 border-l border-solid border-gray-500 text-black top-3'>{/*<NavLink to={'/search'}>*/} <SearchIcon></SearchIcon>{/*</NavLink>*/}</button>
        </div>
        {/* Laptop Menu */}
        <div className='hidden space-x-4 md:flex ml-auto text-[1rem] font-semibold mr-3 '>

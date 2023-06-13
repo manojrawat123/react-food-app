@@ -14,6 +14,7 @@ import MyOrderDetail from './Component/OrderDetail/MyOrderDetail';
 function App() { 
 return (
     <>
+   
       <PrimarySearchAppBar />
       <SideBar />
       <Routes>
@@ -25,7 +26,6 @@ return (
         <Route path='/login' Component={TabExample}></Route>
       </Routes>
       <Footer />
-     
     </>
   )
 }
