@@ -51,7 +51,7 @@ const Topbar = () => {
           setItemSearch(e.target.value)
 
         }}
-        className='border border-gray-500 border-solid outline-1 text-black outline-blue-700 w-[40vw] sm:w-[40vw] h-[3rem] rounded-xl pl-4' />
+        className='border border-gray-500 border-solid outline-1 text-black outline-blue-700 w-[50vw] sm:w-[40vw] h-[3rem] rounded-xl pl-4' />
         <button 
         type="button"
         onClick={()=>{console.log("button clicked")}}

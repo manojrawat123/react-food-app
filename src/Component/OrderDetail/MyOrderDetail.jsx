@@ -15,10 +15,10 @@ const MyOrderDetail = () => {
   
     return (
         <div className='grid grid-cols-3 my-4 mx-8' key={item[0]?.id}>
-        <div className='sm:col-span-1 gap-5 col-span-3 '>
-          <img src={cocktails?.filter((element)=> element.id === myId)[0]?.image?cocktails?.filter((element)=> element.id === myId)[0].image: dosa} alt="" className='object-contain' />
+        <div className='md:col-span-1 gap-5 col-span-3 h-[50vh] w-[95]'>
+          <img src={cocktails?.filter((element)=> element.id === myId)[0]?.image?cocktails?.filter((element)=> element.id === myId)[0].image: dosa} alt="" className='oS h-[100%] w-[100%]' />
         </div>
-        <div className='sm:col-span-2 col-span-3 shadow-2xl p-4 rounded-xl sm:ml-4'>
+        <div className='md:col-span-2 col-span-3 shadow-2xl p-4 rounded-xl md:ml-4'>
           <h1 className='text-xl font-bold underline '>
            <span className='font-bold'>Drink Name:</span> {cocktails?.filter((element)=> element.id === myId)[0]?.name? cocktails?.filter((element)=> element.id === myId)[0]?.name :"Loading wait for second ..."}
           </h1>
