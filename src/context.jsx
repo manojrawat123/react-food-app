@@ -15,7 +15,6 @@ const ApiProvider = ({children})=>{
         try {
         const response = await axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchTerm}`)
         const items = response.data.drinks
-        console.log(items)
         const newCocktail = items?.map((element, index)=>{
             const { strDrink, idDrink,strDrinkThumb,strAlcoholic, strGlass,strIngredient1,strIngredient2,strIngredient3,strIngredient4,strIngredient5, strInstructions,strInstructionsDE,strInstructionsES,strInstructionsFR,strInstructionsIT} = element
             return {
@@ -29,7 +28,6 @@ const ApiProvider = ({children})=>{
             }
 
         })
-        console.log("Fetched Data Sucessfully")
         setCocktails(newCocktail)
         setLoading(false)
         } catch (error) {
@@ -48,10 +46,7 @@ const ApiProvider = ({children})=>{
         }
         else{
             
-            fetchingApiFunc()
             const data = cocktails?.filter((element)=> element.name.toLowerCase().includes(itemSearch.toLowerCase()))
-            console.log("cocktails", cocktails)
-            console.log("data",data)
             setCocktails(data)
         }
     }, [itemSearch])

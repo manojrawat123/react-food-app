@@ -65,8 +65,10 @@ const MyOrderDetail = () => {
             </div>
 
          </div>
+         <div className="mt-4">
         <button  className='border border-solid border-blue-500 bg-transparent text-blue-700 font-semibold hover:bg-blue-500 hover:border-transparent hover:text-white sm:py-2 sm:px-4 sm:text-sm py-1 px-2 rounded mr-2'>Buy Now</button>
         <button  className='border border-solid border-blue-500 bg-transparent text-blue-700 font-semibold hover:bg-blue-500 hover:border-transparent hover:text-white sm:py-2 sm:px-4 sm:text-sm py-1 px-2 rounded ml-2'>Add To Cart</button>
+        </div>
         </div>
       </div>
     )
